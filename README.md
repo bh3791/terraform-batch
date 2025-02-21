@@ -15,8 +15,7 @@ This repo contains terraform configuration for AWS Batch Fargate. It sets up all
 ## Configuring
 1. run the `aws configure` command to set up your security credentials. You will need to generate these in
 the AWS console https://console.aws.amazon.com/iamv2/home#/users : user : security credentials : access keys
-2. configure terraform by editing the `terraform.tfvars` file, naming the deployment 'projectx'.
-Create the infrastructure when you are satisfied.
+2. edit the `terraform.tfvars` file, naming the deployment as you please'.
 The project is initially configured to work out of the box in the us-west-1 region.
 To modify it for another region, networking.tf would need to be edited to apply the correct availability zones and subnets.
 
