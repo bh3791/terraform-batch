@@ -1,6 +1,8 @@
-Configuration for AWS Batch - Fargate
+# Configuration for AWS Batch - Fargate
 
-Install the tools
+This repo contains terraform configuration for AWS Batch Fargate. It sets up all the AWS requirements to run jobs under fargate. It can be complicated to set up the AWS topology. This has proven to be a useful way to set up and tear down different AWS environments. 
+
+## Install the tools
 1. install the AWS CLI
     - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
     - mac: `brew install awscli`
@@ -10,7 +12,7 @@ Install the tools
     - mac: `brew install terraform`
     - win: `choco install terraform`
 
-Configuring
+## Configuring
 1. run the `aws configure` command to set up your security credentials. You will need to generate these in
 the AWS console https://console.aws.amazon.com/iamv2/home#/users : user : security credentials : access keys
 2. configure terraform by editing the `terraform.tfvars` file, naming the deployment 'projectx'.
