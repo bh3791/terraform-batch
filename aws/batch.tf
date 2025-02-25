@@ -70,9 +70,7 @@ resource "aws_batch_job_definition" "aws_jobdef" {
       cpuArchitecture = "ARM64"
     },
     environment = [
-      { "name" : "AWS_REGION", "value" : "" },
-      { "name" : "BUCKET_NAME", "value" : "" },
-      { "name" : "MODE_STR", "value" : "" }
+      { "name" : "AWS_REGION", "value" : "" }
     ],
     "networkConfiguration" : {
       "assignPublicIp" : "ENABLED"
