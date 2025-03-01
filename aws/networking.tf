@@ -11,8 +11,8 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_subnet" "subnet1" {
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = "10.0.0.0/17"
-  availability_zone = "us-west-1b"
+  cidr_block        = var.subnet1_cidr_block
+  availability_zone = "${var.aws_region}b"
 
   tags = {
     "Name" = "${var.deployment_name}_sub1"
@@ -20,8 +20,8 @@ resource "aws_subnet" "subnet1" {
 }
 resource "aws_subnet" "subnet2" {
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = "10.0.128.0/17"
-  availability_zone = "us-west-1c"
+  cidr_block        = var.subnet2_cidr_block
+  availability_zone = "${var.aws_region}c"
 
   tags = {
     "Name" = "${var.deployment_name}_sub2"
@@ -40,7 +40,7 @@ resource "aws_route_table" "rtb" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = var.route_table_cidr_block
     gateway_id = aws_internet_gateway.gw.id
   }
 
@@ -67,7 +67,7 @@ resource "aws_security_group" "aws_sec_grp" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [var.route_table_cidr_block]
   }
 
   tags = {

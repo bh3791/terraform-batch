@@ -1,6 +1,9 @@
 # Configuration for AWS Batch - Fargate
 
-This repo contains terraform configuration for AWS Batch Fargate. It sets up all the AWS requirements to run jobs under fargate. It can be complicated to set up the AWS topology. This has proven to be a useful way to set up and tear down different AWS environments. 
+This repo contains terraform configuration files for AWS Batch Fargate. It sets up all the AWS requirements to run jobs under fargate. It can be complicated to set up the AWS topology because of the number of entities involved. This has proven to be a useful way to set up and tear down different AWS environments. A batch queue, compute
+environment and docker image are configured by default. These can be customized in the scripts.
+
+Note that the configuration allocates a public IP with egress, because this is required to access the ECR docker image repository.
 
 ## Install the tools
 1. install the AWS CLI
